@@ -1,8 +1,3 @@
-/* ============================================================
-   KALIDASAN V V — PORTFOLIO JAVASCRIPT
-   js/main.js
-   ============================================================ */
-
 /* ---------- CUSTOM CURSOR ---------- */
 const cur  = document.getElementById('cur');
 const curR = document.getElementById('curR');
@@ -14,7 +9,6 @@ document.addEventListener('mousemove', e => {
   cur.style.transform = `translate(${mx - 5}px, ${my - 5}px)`;
 });
 
-// Smooth ring follow
 (function animateRing() {
   rx += (mx - rx - 18) * 0.12;
   ry += (my - ry - 18) * 0.12;
@@ -22,7 +16,6 @@ document.addEventListener('mousemove', e => {
   requestAnimationFrame(animateRing);
 })();
 
-// Cursor hover effect on links/buttons
 document.querySelectorAll('a, button').forEach(el => {
   el.addEventListener('mouseenter', () => { curR.style.opacity = '0'; });
   el.addEventListener('mouseleave', () => { curR.style.opacity = '0.5'; });
@@ -31,15 +24,13 @@ document.querySelectorAll('a, button').forEach(el => {
 /* ---------- SCROLL REVEAL ---------- */
 const revealObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
+    if (entry.isIntersecting) entry.target.classList.add('visible');
   });
 }, { threshold: 0.1 });
 
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-/* ---------- ACTIVE NAV LINK ON SCROLL ---------- */
+/* ---------- ACTIVE NAV LINK ---------- */
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-links a');
 
